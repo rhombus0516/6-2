@@ -7,7 +7,7 @@ select AVG(height) as '平均身長', AVG(weight) as '平均体重' from players
 /* 問3 */
 select countries.name as '国名', AVG(height) as '平均身長' from countries join players on countries.id = players.country_id group by countries.id, countries.name order by avg(height) desc;
 
-/* 問4 */
+/* 問4 */ 
 select (select c.name from countries c where p.country_id = c.id) as 'kunimei', avg(height) as 'sincho' from players p group by p.country_id order by avg(p.height) desc;
 
 /* 問5 */
