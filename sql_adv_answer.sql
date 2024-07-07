@@ -26,7 +26,7 @@ select players.position as 'ポジション', count(goals.id) as 'ゴール数' 
 select birth, TIMESTAMPDIFF(YEAR, birth, '2014-06-13') as age, name, position from players order by age desc;
 
 /* 問10 */
-select SUM(CASE when g.player_id is NULL then 1 else 0 end) as COUNT(g.goal_time) from goals g;
+select count(goals.id) from goals where 1=1 and player_id is null;
 
 /* 問11 */
 select c.group_name, count(g.id) from goals g join pairings p on g.pairing_id = p.id and p.kickoff between '2014-6-13 00:00:00' and '2014-6-27 23:59:59' join countries c on p.my_country_id = c.id group by c.group_name;
